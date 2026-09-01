@@ -2,7 +2,7 @@
 
 A CLI that recursively calculates directory sizes and lists them sorted from largest to smallest — a Go clone of the Unix `du` command.
 
-> Status: work in progress (Phase 1) — CLI arg parsing and single-level directory size summing are working; recursive traversal is next.
+> Status: work in progress (Phase 1) — CLI arg parsing (with usage error + exit code) is working; listing directory contents is next.
 
 ---
 
@@ -48,7 +48,11 @@ not available yet
 
 ## How to Run
 
-not available yet
+```bash
+go run main.go <path>
+```
+
+Prints the given path back. Running without an argument prints a usage message to stderr and exits with code 1.
 
 ---
 
