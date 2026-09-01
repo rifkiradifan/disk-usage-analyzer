@@ -12,5 +12,27 @@ func main() {
 	}
 
 	path := os.Args[1]
-	fmt.Println("Path:", path)
+
+	entries, err := os.ReadDir(path)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "Error reading directory:", err)
+		os.Exit(1) // exit code non-zero
+	}
+
+	var total int64
+
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue // skip directories
+		}
+
+		info, err := entry.Info()
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "Error getting file info", entry.Name(), ":", err)
+			continue // skip this entry
+
+		}
+		total += info.Size()
+	}
+	fmt.Println("Total size:", total)
 }

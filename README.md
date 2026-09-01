@@ -2,7 +2,7 @@
 
 A CLI that recursively calculates directory sizes and lists them sorted from largest to smallest — a Go clone of the Unix `du` command.
 
-> Status: work in progress (Phase 1) — CLI arg parsing (with usage error + exit code) is working; listing directory contents is next.
+> Status: work in progress (Phase 1) — CLI arg parsing and single-level directory size summing are working; recursive traversal (`filepath.WalkDir`) is next.
 
 ---
 
@@ -36,13 +36,28 @@ Planned — nothing wired up yet, see [ROADMAP.md](ROADMAP.md) for sequencing.
 
 ## Folder Structure
 
-not available yet
+```
+disk-usage-analyzer/
+├── main.go
+├── go.mod
+├── .gitignore
+├── LICENSE
+├── README.md
+└── ROADMAP.md
+```
 
 ---
 
 ## Installation
 
-not available yet
+Requires Go 1.25.2 or newer.
+
+```bash
+git clone https://github.com/rifkiradifan/disk-usage-analyzer.git
+cd disk-usage-analyzer
+```
+
+No external dependencies yet — nothing else to install.
 
 ---
 
@@ -52,7 +67,7 @@ not available yet
 go run main.go <path>
 ```
 
-Prints the given path back. Running without an argument prints a usage message to stderr and exits with code 1.
+Sums file sizes in the given directory (one level deep, subdirectories not yet included) and prints the total in bytes. Running without an argument prints a usage message to stderr and exits with code 1.
 
 ---
 

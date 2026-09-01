@@ -6,8 +6,8 @@ My execution plan for this project, broken into phases. I'll check items off as 
 
 - [x] Set up project (`go mod init`) → verify: `main.go` & `go.mod` created
 - [x] Read directory path from CLI arg (`os.Args`) → verify: path printed back, clear error if missing
-- [ ] List one directory's contents, non-recursive (`os.ReadDir`) → verify: entry names + type (file/dir) printed
-- [ ] Sum file sizes in one directory (`entry.Info().Size()`) → verify: total matches File Explorer / `du -sb`
+- [x] List one directory's contents, non-recursive (`os.ReadDir`) → verify: entry names + type (file/dir) printed
+- [x] Sum file sizes in one directory (`entry.Info().Size()`) → verify: total matches File Explorer / `du -sb`
 - [ ] Make it recursive with `filepath.WalkDir` → verify: total size of a large folder matches a reference tool
 - [ ] Aggregate size per directory (struct + map) → verify: size of each top-level subdirectory printed
 - [ ] Sort descending + human-readable output (KB/MB/GB) → verify: output sorted largest → smallest
